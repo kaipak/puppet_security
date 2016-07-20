@@ -3,9 +3,9 @@ Facter.add('sectest_l1_firewall_on') do
   setcode do
     firewall_state = Facter::Core::Execution.execute('firewall-cmd --state')
     if firewall_state == 'running'
-      true
+      'pass'
     else
-      false
+      'fail'
     end
   end
 end
