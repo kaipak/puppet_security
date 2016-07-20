@@ -1,4 +1,4 @@
-Facter.add('sectest_l1_passwd_file_root_owner') do
+Facter.add('sectest_l1_passwd_file_perms') do
   confine :kernel => 'Linux'
   setcode do
     passwd_file_perms = Facter::Core::Execution.exec("/bin/stat -c \%a /etc/passwd")
