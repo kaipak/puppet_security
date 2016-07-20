@@ -4,9 +4,9 @@ Facter.add('sectest_l1_sshd_allow_rootlogon') do
     # Check if PermitRootLogin is allowed.
     permitRootLogin = Facter::Core::Execution.execute('/bin/grep PermitRootLogin /etc/ssh/sshd_config | cut -d \' \' -f2').chomp
     if permitRootLogin == 'yes'
-      true
+      'fail'
     else
-      false
+      'pass'
     end
   end
 end
